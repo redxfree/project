@@ -1,0 +1,15 @@
+{% extends 'login.html' %}
+
+{% block title %}Home{% endblock %}
+{% csrf_token %}
+{% block content %}
+
+
+{% if user.is_authenticated %}
+
+<form action= {% url 'logout' %} method="post">
+<input class="btn" type="Submit" value="Logout" >
+
+
+{% endif %}
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% load static %}
+ {% block title %} Details {% endblock title%}
+ {% block main %}
+	
+  
+
+		<h1>Employee Details</h1>
+		
+		 <li>name = {{Employee.user}}<br/> 
+		 <li>age =  {{Employee.age}}<br/> 
+		 <li>salary = {{Employee.salary}}<br/> 
+		 <li>gender = {{Employee.gender}}<br/>
+         <li>contact = {{Employee.contact}}<br/>
+         <li>department = {{Employee.department}}<br/>
+         <li>designation = {{Employee.designation}}<br/>
+		
+
+	 <br/>
+	 {% endblock main %}

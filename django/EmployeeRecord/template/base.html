@@ -1,0 +1,203 @@
+{% load static %}
+<!DOCTYPE html>
+<html data-select2-id="select2-data-23-o9da" lang="en">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+
+    <title>
+        {% block title %}Employees{% endblock %}
+    </title>
+
+    <link rel="shortcut icon" type="image/x-icon" href="">
+
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+
+    <link rel="stylesheet" href="{%static 'css/font-awesome.css' %}">
+
+    <link rel="stylesheet" href="{%static 'css/line-awesome.css' %}">
+
+    <link rel="stylesheet" href="{%static 'css/select2.css' %}">
+
+    <link rel="stylesheet" href="{%static 'css/bootstrap-datetimepicker.css' %}">
+
+    <link rel="stylesheet" href="{%static 'css/style.css' %}">
+
+
+
+    <!--[if lt IE 9]>
+			<script src="assets/js/html5shiv.min.js"></script>
+			<script src="assets/js/respond.min.js"></script>
+		<![endif]-->
+</head>
+
+<body>
+    <div class="main-wrapper">
+
+        <div class="header">
+
+            <div class="header-left">
+                <a href="" class="logo">
+                    <img src="{% static 'images/logo2.png' %}" alt="" width="40" height="40">
+                </a>
+            </div>
+
+
+
+
+            <div class="page-title-box">
+                <h3>Employee System</h3>
+            </div>
+
+            <a id="mobile_btn" class="mobile_btn" href="#sidebar"><i class="fa fa-bars"></i></a>
+
+            <ul class="nav user-menu">
+
+                <li class="nav-item">
+                    <div class="top-nav-search">
+                        <a href="javascript:void(0);" class="responsive-search">
+                            <i class="fa fa-search"></i>
+                        </a>
+
+                    </div>
+                </li>
+
+
+
+
+
+                <a href="{% url 'logout'%} " class="dropdown-toggle nav-link" data-bs-toggle="dropdown">
+                    <span class="user-img"><img src="" alt="">
+						<span>Logout</span>
+                </a>
+
+                </li>
+            </ul>
+
+
+        </div>
+
+    </div>
+
+
+    <div class="sidebar" id="sidebar">
+        <div class="slimScrollDiv" style="position: relative; overflow: hidden; width: 100%; height: 549px;">
+            <div class="sidebar-inner slimscroll" style="overflow: hidden; width: 100%; height: 549px;">
+                <div id="sidebar-menu" class="sidebar-menu">
+                    <ul>
+                        <li class="menu-title">
+                            <span>Main</span>
+                        </li>
+                        <li class="submenu">
+                            <a href="{% url 'login' %}"><i class=""></i> <span> Login</span> <span></span></a>
+                            <ul style="display: none;">
+
+                        </li>
+                        <li><a href="">Employee
+								</a></li>
+                        </ul>
+                        </li>
+
+                        </li>
+                        <li class="menu-title">
+                            <span>Employees</span>
+                        </li>
+                        <li class="submenu">
+                            <a href="{% url 'list'%}">
+                                <span>
+								Employees</span> <span></span></a>
+                            <ul style="display: block;">
+
+
+                        </li>
+                        <li><a href="{% url 'apprasial'%}">Apprasial
+
+
+					<li><a href="{% url 'leave' %}">Leave </a></li>
+                        <li><a href="{% url 'material'%}">Material</a></li>
+                        <li><a href="{% url 'attendance'%}">Attendance</a></li>
+                        <li><a href="{% url 'transport'%}">Transport</a></li>
+
+                        <li><a href="{% url 'overtime' %}">Over Time </a></li>
+                        </ul>
+                        </li>
+
+                        </li>
+                        </li>
+                        <ul style="display: none;">
+                            <li class="submenu">
+                                <a href="javascript:void(0);"> <span>Level 1</span> <span class="menu-arrow"></span></a>
+                                <ul style="display: none;">
+                                    <li><a href="javascript:void(0);"><span>Level 2</span></a></li>
+                                    <li class="submenu">
+                                        <a href="javascript:void(0);"> <span> Level 2</span> <span class="menu-arrow"></span></a>
+                                        <ul style="display: none;">
+                                            <li><a href="javascript:void(0);">Level 3</a></li>
+                                            <li><a href="javascript:void(0);">Level 3</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0);"> <span>Level 2</span></a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0);"> <span>Level 1</span></a>
+                            </li>
+                        </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="page-wrapper" style="min-height: 609px;">
+
+        <div class="content container-fluid">
+
+            <div class="page-header">
+                <div class="row align-items-center">
+                    <div class="col">
+                        <h3 class="page-title">Employee</h3>
+
+                    </div>
+                    <div class="col-auto float-end ms-auto">
+                        <a href="{% url 'signup' %}" class="btn add-btn" data-bs-toggle="modal" data-bs-target="#add_employee"><i class=""></i> Add Employee</a>
+
+
+
+
+
+
+                    </div>
+                </div>
+            </div>
+
+            <form method="POST">
+                {% csrf_token %} {% block main %} {% endblock main %}
+        </div>
+    </div>
+
+    </div>
+
+    <script src="{ static 'js/jquery-3.js }"></script>
+
+    <script src="{ static 'js/bootstrap.js }"></script>
+
+    <script src="{ static 'js/jquery.js }"></script>
+
+    <script src="{ static 'js/select2.js }"></script>
+
+    <script src="{ static 'js/moment.js }"></script>
+    <script src="{ static 'js/bootstrap-datetimepicker.js }"></script>
+
+    <script src="{ static 'js/app.js}"></script>
+
+    <div class="sidebar-overlay"></div>
+</body>
+
+</html>

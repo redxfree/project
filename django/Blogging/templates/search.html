@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static%}
+{% block title%} search Result{% endblock title %}
+
+
+
+<div id="main-content" class="blog-page">
+    <div class="container">
+        <div class="row clearfix">
+            <div class="col-lg-8 col-md-12 left-box">
+                <div class="card single_post">
+                    <div class="body">
+                        <div class="img-post">
+                            <img class="d-block img-fluid" src="{{blog.blog_image.url}}" alt="pic">
+                        </div>
+                        <h3><a >{{blog.title}}</a></h3>
+
+                        <p>{{blog.content |safe }}</p> 
+                    </div>                        
+                </div>
+
+
+
+
+
+
+{% endblock %}

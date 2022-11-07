@@ -1,0 +1,24 @@
+{% extends 'base.html' %} {% load static %} {% block main %} {% block title %}List{% endblock title %}
+
+<link rel="stylesheet" href="{% static 'css/signup.css' %}">
+
+
+<div class="row staff-grid-row">
+    {% for emp in employees %}
+    <div class="col-md-4 col-sm-6 col-12 col-lg-4 col-xl-3">
+        <div class="profile-widget">
+            <div class="profile-img">
+                <a href="{% url 'detail' pk=emp.id %} " class="avatar"><img src="{{emp.employee_image.url}}" alt=""></a>
+            </div>
+
+            <h4 class="user-name m-t-10 mb-0 text-ellipsis"><a href="">{{emp.user}}</a></h4>
+            <div class="small text-muted">{{emp.designation}}</div>
+        </div>
+    </div>
+
+    {% endfor %}
+
+</div>
+
+
+{% endblock main %}

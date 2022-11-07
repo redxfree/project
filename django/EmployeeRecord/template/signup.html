@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+
+
+{% block title %}Sign up{% endblock title %}
+{% block main %}
+
+<link rel="stylesheet" href="{% static 'css/signup.css' %}">
+<div class="row staff-grid-row">
+  <div class="title"><b>Sign up</div>
+    <div class="content">
+
+  <form enctype="multipart/form-data" method="POST">
+    {% csrf_token %}
+    <div class="form_name">
+      Name:
+      <input type="text" name="name">
+
+    </div> <br />
+    <div class="form_name">
+      USerName:
+      <input type="text" name="username">
+
+    </div> <br />
+    <div class="form_name">
+      Password:
+      <input type="password" name="password">
+
+    </div> <br />
+    <div class="form_age">
+      {{form.age.label}}:
+      {{form.age}}<br>
+    </div> <br />
+    <div class="form_gender">
+      {{form.gender.label}}:
+      {{form.gender}}
+    </div><br />
+    <div class="form_salary">
+      {{form.salary.label}}:
+      {{form.salary}}
+    </div> <br />
+    <div class="form_contact">
+      {{form.contact.label}}:
+      {{form.contact}}
+    </div> <br />
+    <div class="form_designation">
+      {{form.designation.label}}:
+      {{form.designation}}
+    </div> <br />
+    <div class="form_department">
+      {{form.department.label}}:
+      {{form.department}}
+    </div> <br />
+  
+    <div class="form_image">
+      {{form.employee_imaage.label}}
+      {{form.employee_imaage}}
+    </div> <br/>
+
+
+    <div class="form_salary">
+      {{form.dob.label}}:
+      {{form.dob}}
+    </div> <br />
+
+
+    <input class="btn" type="submit" value="Submit" style="background-color: blue; color:white;">
+
+  </form>
+  
+</div>
+</div>
+{% endblock main %}

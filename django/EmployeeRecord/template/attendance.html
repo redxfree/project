@@ -1,0 +1,32 @@
+{% extends 'base.html' %} {% load static%} {% block title %}Attendace{% endblock %} {% block main %}
+<link rel="stylesheet" href="{% static 'css/signup.css' %}"> {% if error_message %}
+<label style="color:red;">{{error_message}}</label> {% else %} {% if message %}
+<label style="color:green;">{{message}}</label> {% else %}
+
+
+<link rel="stylesheet" href="{% static 'css/signup.css' %}">
+
+
+<form method="POST">
+    {% csrf_token %}
+
+    <label>In Time:</label> {{form.in_time}} <br>
+
+    <br>
+    <label>Out Time</label> {{form.out_time}}
+    <br>
+    <br>
+
+    <label> Attendance Date:</label> {{form.attendance_date}}
+    </br>
+
+
+
+
+
+    <br><br>
+    <input class="btn" type="submit" value="Submit" style="background-color: blue; color:white;">
+
+
+</form>
+{% endif %} {% endif %} {% endblock main %}

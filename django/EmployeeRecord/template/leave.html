@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+{% load static%}
+
+{% block title %}Attendace{% endblock %}
+
+{% block main %}
+<link rel="stylesheet" href="{% static 'css/signup.css' %}">
+
+
+
+
+{% if error_message %}
+<label style="color:red;">{{error_message}}</label>
+
+{% else %}
+
+
+{% if message %}
+<label style="color:green;">{{message}}</label>
+
+{% else %}
+
+
+<link rel="stylesheet" href="{% static 'css/signup.css' %}">
+
+
+<form method="POST">
+  {% csrf_token %}
+
+
+  
+<label>Leave Date</label>
+    {{form.leavedate}}
+    <br><br>
+    
+  <label>End Date</label>
+    {{form.enddate}}
+    <br>
+  <br>
+  
+  <label>Leave Type</label>
+    {{form.leavetype}}
+    <br><br>
+    
+    <label>Approve</label>
+    {{form.approver}}
+    <br><br>
+  
+
+    
+
+
+  <input class="btn" type="submit" value="Submit" style="background-color: blue; color:white;">
+
+
+
+<br> <br>
+
+{% for i in approval_leaves %}
+<div class="form-row">
+  <div class="input-group col-md-8 mb-2">
+ 
+<div class="col-md-2 mb-2"> {{i.requestor}}</div>
+<div  class="col-md-2 mb-2">{{i.leavedate}}</div>
+<div  class="col-md-2 mb-2">{{i.enddate}}</div>
+<div  class="col-md-2 mb-2">{{i.leavetype}} </div>
+<div  class="col-md-2 mb-2"> {{i.status}} </div>
+
+{% endfor %}
+{% endif %}
+{% endif %}
+{% endblock main %}

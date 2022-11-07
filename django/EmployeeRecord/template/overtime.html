@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% load static%}
+
+{% block title %}OverTime{% endblock %}
+
+{% block main %}
+<link rel="stylesheet" href="{% static 'css/signup.css' %}">
+
+
+
+
+{% if error_message %}
+<label style="color:red;">{{error_message}}</label>
+
+{% else %}
+
+
+{% if message %}
+<label style="color:green;">{{message}}</label>
+
+{% else %}
+
+
+<link rel="stylesheet" href="{% static 'css/signup.css' %}">
+
+
+<form method="POST" action=''>
+  {% csrf_token %}
+
+  <br>
+  <br>
+  
+  
+<label>Date </label>
+    {{form.date}}
+    <br><br>
+
+    <label> Time From</label>
+    {{form.timefrom}}
+    <br>
+    <br>
+    <br>
+      
+  <label> Time To</label>
+    {{form.timeto}}
+    <br>
+  <br>
+  <label>Approve</label>
+    {{form.approver}}  
+  <br>
+  
+    
+  <input class="btn" type="submit" value="Submit" style="background-color: blue; color:white;">
+
+  
+  {% for i in approval %}
+  <li>{{i.date}} 
+   <li>{{i.timefrom}}
+     <li>{{i.timeto}}
+       <li>{{i.status}}
+         {% endfor %}
+
+
+</form>
+{% endif %}
+{% endif %}
+{% endblock main %}

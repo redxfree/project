@@ -1,0 +1,43 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title> filter </title>
+    
+  </head>
+  <body>
+  <h1> <b>{{message}}<b></h1>
+
+
+<br/><br/>
+
+<form method="POST">
+ {% csrf_token %}
+ <div class="form_class">
+ {{form.name.label}}:
+ {{form.name}}
+ </div> <br /> 
+ <div class="form_class">
+ {{form.age.label}}:
+  {{form.age}}
+ </div> <br /> 
+  <div class="form_class">
+  {{form.gender.label}}:
+ {{form.gender}}
+ </div><br /> 
+ <div class="form_class">
+  {{form.city.label}}:
+ {{form.city}}
+ </div> <br /> 
+ 
+<input type="submit" value="Submit" >
+
+</form>
+
+
+  </body>
+</html>

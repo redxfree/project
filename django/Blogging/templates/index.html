@@ -1,0 +1,171 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% block title %} Blogs {% endblock title%}
+  {% block main  %}
+
+    
+    <main class="blog-standard">
+        <div class="container">
+            <h1 class="oleez-page-title wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">Blog </h1>
+            <div class="row">
+                    <div class="col-md-8">
+                        {% for i in blogs %}
+                        <article class="blog-post wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
+                            <img src="{{i.blog_image.url}}" alt="blog post" class="post-thumbnail">
+                            
+                            <p class="post-date">{{i.created_date }}</p>
+                            <h4 class="post-title">{{i.title}}</h4>
+                            <p class="post-excerpt">{{i.content | truncatechars:300}}</p>
+                            <a href="{% url 'detail' slug=i.slug %}" class="post-permalink">READ MORE...</a>
+                        </article>
+                        <hr> 
+                        {% endfor %}
+ 
+                        
+                        <!-- pagination -->
+                                            
+        
+                                            <nav class="oleez-pagination wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">    
+                                                
+                                                    {% if is_paginated %}
+                                            <nav class="oleez-pagination wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
+                                                {% if page_obj.has_previous %}
+                    
+                                                
+                    
+                                <a href="{{base_url}}{{ obj.get_absolute_url }}?page={{ page_obj.previous_page_number }}"
+                                                    class="page-link" style="color:#929292">&laquo; PREV </a>
+                                            {% endif %}
+                    
+                    
+                                            
+                                            {% for num in page_obj.paginator.page_range %}
+                                            
+                                            <a href="" class="page-link" style="color:#000; background: #929292;">
+                                                    <b>{{ num }}</b> </a>
+                    
+                    
+                                            
+                                            <a {% if base_url == "" %}href="?page={{ num }}"
+                                                    {% else %}href="{{base_url}}&page={{ num }}" {% endif %} class="page-link"
+                                                    style="color:#929292"> {{ num }} </a>
+                                            
+                    
+                    
+                                            
+                                            {% endfor %}
+                    
+                                            {% if page_obj.has_next %}
+                                        <a href="{{base_url}}?page={{ page_obj.next_page_number }}" class="page-link"
+                                                    style="color:#929292"> NEXT &raquo;</a>
+                                            {% endif %}
+                    
+                                                {% endif %}
+                    
+                                            </nav>
+                       
+                                        </div>
+
+
+
+                    <div class="sidebar-widget wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
+
+                    <h5 class="widget-title">category </h5>
+                    <div class="widget-content">
+                        <ul class="category-list">
+                    
+                  
+                              {% for i in Catergorie %}
+                                           
+                                <li><a href= "{% url 'catergory' slug=i.slug %}" >{{i.Catergorie}}</li></a>
+                                
+                                {% endfor %}
+                             
+                               
+                                  
+                            </ul>
+                        </div>
+                     
+                    </div>
+                </div>
+                        
+
+            </div>
+        </div>
+    </main>
+    
+    <footer class="oleez-footer wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
+        <div class="container">
+            <div class="footer-content">
+                <div class="row">
+                    <div class="col-md-6">
+                        <img src="{% static 'images/blog.png' %}" alt="oleez" class="footer-logo">
+                        <p class="footer-intro-text">Don't be shy, get in touch with us and create the world again!</p>
+                        <nav class="footer-social-links">
+                            <a href="#!">Fb</a>
+                            <a href="#!">Tw</a>
+                            <a href="#!">In</a>
+                            <a href="#!">Be</a>
+                        </nav>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="row">
+                            <div class="col-md-6 footer-widget-text">
+                                <h6 class="widget-title">PHONE</h6>
+                                <p class="widget-content">638628</p>
+                            </div>
+                            <div class="col-md-6 footer-widget-text">
+                                <h6 class="widget-title">ENQUIRUES</h6>
+                                <p class="widget-content">blog@gmail.com</p>
+                            </div>
+                            <div class="col-md-6 footer-widget-text">
+                                <h6 class="widget-title">ADDRESS</h6>
+                                <p class="widget-content">33 rue Burdeau 69089 <br> </p>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-text">
+                <p class="mb-md-0"> <a href="" target="_blank" rel="noopener noreferrer" class="text-reset"></a>.</p>
+                <p class="mb-0">All right reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modals -->
+    <!-- Off canvas social menu -->
+    <nav id="offCanvasMenu" class="off-canvas-menu">
+        <button type="button" class="close" aria-label="Close" data-dismiss="offCanvasMenu">
+            <span aria-hidden="true">×</span>
+        </button>
+        <ul class="oleez-social-menu">
+            <li>
+                <a href="#!" class="oleez-social-menu-link">Facebook</a>
+            </li>
+            <li>
+                <a href="#!" class="oleez-social-menu-link">Instagram</a>
+            </li>
+            <li>
+                <a href="#!" class="oleez-social-menu-link">Behance</a>
+            </li>
+            <li>
+                <a href="#!" class="oleez-social-menu-link">Dribbble</a>
+            </li>
+            <li>
+                <a href="#!" class="oleez-social-menu-link">Email</a>
+            </li>
+        </ul>
+    </nav>
+   
+
+
+
+</body></html>
+
+{% endblock main %}
+
+
+

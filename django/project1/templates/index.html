@@ -1,0 +1,15 @@
+<html>
+<body>
+<b>I am in the html file</b>
+
+<p>{{somedata}}</p>
+
+{% for student in students %}
+    
+      <a href="{% url 'home_detail' pk=student.pk %} "> 
+       {{student.name}}</a> </br>
+   
+{% endfor %}
+</body>
+</html>
+

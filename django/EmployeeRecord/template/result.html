@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{%load static %}
+{% block title %}Result {% endblock %}
+
+{% block main %}
+<link rel="stylesheet" href="{% static 'css/signup.css' %}">
+<br><br>
+<form method= "get">
+    
+<label>Result</label>
+{{form.result}}
+
+
+<br>
+<label>Status</label>
+{{form.status}}
+
+
+</form>
+{% endblock main %}
